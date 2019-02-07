@@ -1,61 +1,37 @@
 package Dogs;
 
-public class OrganicDog  {
+import pets.OrganicPet;
 
-	private String name;
-	private int hunger;
-	private int thirst;
-	private int happy;
-	private int health;
-	private int mess;
+public class OrganicDog extends OrganicPet implements Dog {
 
-	public OrganicDog(String name, int hunger, int thirst, int happy, int health, int mess) {
-		this.name = name;
-		this.hunger = hunger;
-		this.thirst = thirst;
-		this.happy = happy;
-		this.health = health;
-		this.mess = mess;
+	private int cageClean = 0;
+
+	public OrganicDog(String name) {
+		super(name);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public int getHunger() {
-		return hunger;
-	}
-
-	public int getThirst() {
-		return thirst;
-	}
-
-	public int getHappy() {
-		return happy;
-	}
-	
-	public int getHealth() {
-		return health;
-	}
-
-	public int getMess() {
-		return mess;
-	}
-
+	@Override
 	public void walk() {
-		happy += 5;
-		
+		this.happiness += 5;
+		this.mess -= 5;
 	}
 
-	public void feed() {
-		hunger -= 5;
-		
+	@Override
+	protected void tick() {
+		happiness -= 5;
+		thirst += 5;
+		hunger += 5;
+		mess += 5;
+		cageClean += mess / 10;
+		health -= cageClean;
 	}
 
-	public void drink() {
-		thirst -=5;		
+	public void cleanCage() {
+		cageClean = 0;
 	}
 
-	
-	
+	public Object getCageClean() {
+		return cageClean;
+	}
+
 }

@@ -1,53 +1,40 @@
 package Cats;
- 
-public class OrganicCat {
 
-	private String name;
-	private int hunger;
-	private int thirst;
-	private int happy;
-	private int health;
-	private int mess;
+import pets.OrganicPet;
 
-	public OrganicCat(String name, int hunger, int thirst, int happy, int health, int mess) {
-		this.name = name;
-		this.hunger = hunger;
-		this.thirst = thirst;
-		this.happy = happy;
-		this.health = health;
-		this.mess = mess;
+public class OrganicCat extends OrganicPet implements Cat{
+
+	public OrganicCat(String name) {
+		super(name);
 	}
 
-	public String getName() {
-		return name;
+	@Override
+	public void play() {
+		this.happiness +=5;
 	}
 
-	public int getHunger() {
-		return hunger;
+	public void useLitter() {
+		this.mess -=5;
+		LitterBox.useBox();
 	}
 
-	public int getThirst() {
-		return thirst;
+	@Override
+	public void checkLitterBox() {
+		if(LitterBox.getWaste() >= 5) {
+			this.health -=1;
+		}
+		
 	}
 
-	public int getHappy() {
-		return happy;
+	@Override
+	protected void tick() {
+		happiness -= 5;
+		thirst += 5;
+		hunger += 5;
+		mess += 5;
+		int healthChange = LitterBox.getWaste() / 10;
+		health -= healthChange;
+		
 	}
-
-	public int getHealth() {
-		return health;
-	}
-
-	public int getMess() {
-		return mess;
-	}
-
-	public void feed() {
-		hunger -= 5;
-	}
-
-	public void drink() {
-		thirst -= 5;
-	}
-
+	
 }

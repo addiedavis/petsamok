@@ -2,44 +2,44 @@ package Dogs;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
 
 import org.junit.Test;
 
-import roboPets.RoboPets;
-
 public class RoboDogTest {
 
-	RoboDog underTest = new RoboDog("henry", 10, 10, 10);
-
+	RoboDog underTest = new RoboDog("Tobias");
+	
 	@Test
-	public void shouldHaveNameHappyOilMess() {
-		String foundName = underTest.getName();
-		int foundHappy = underTest.getHappy();
-		int foundOil = underTest.getOil();
-		int foundMess = underTest.getMess();
-		assertThat(foundName, is("henry"));
-		assertThat(foundHappy, is(10));
-		assertThat(foundOil, is(10));
-		assertThat(foundMess, is(10));
+	public void shouldHaveName() {
+		String name = underTest.getName();
+		assertThat(name, is("Tobias"));
 	}
-
 	@Test
-	public void shouldIncreaseHappyBy5WhenWalked() {
+	public void shouldReturnDefaultAttributes() {
+		int health = underTest.getHealth();
+		int happiness = underTest.getHappiness();
+		int oilLevel = underTest.getOil();
+		assertThat(health, is(10));
+		assertThat(happiness, is(10));
+		assertThat(oilLevel, is(10));
+	}
+	@Test
+	public void shouldIncreaseHappinessBy5WhenWalked() {
 		underTest.walk();
-		int foundHappy = underTest.getHappy();
-		assertThat(foundHappy, is(15));
+		int happy = underTest.getHappiness();
+		assertThat(happy,is(15));
 	}
-
 	@Test
-	public void shouldDecreaseOilBy5WhenOiled() {
+	public void shouldDecreaseOilLevelBy5WhenWalked() {
+		underTest.walk();
+		int mess = underTest.getOil();
+		assertThat(mess,is(5));
+	}
+	@Test
+	public void shouldIncreaseOilLevelTo10WhenOilChanged() {
+		underTest.walk();
 		underTest.oil();
-		int foundOil = underTest.getOil();
-		assertThat(foundOil, is(5));
+		int oilLevel = underTest.getOil();
+		assertThat(oilLevel,is(10));
 	}
-	@Test
-	public void shouldBeAnInstanceOfOrganicPet() {
-		assertThat(underTest, instanceOf(RoboPets.class));
-	}
-
 }

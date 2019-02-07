@@ -2,36 +2,57 @@ package Cats;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
 
 import org.junit.Test;
 
-import roboPets.RoboPets;
-
 public class RoboCatTest {
-	RoboPets underTest = new RoboCat("Paul", 10, 10, 10);
+
+	RoboCat underTest = new RoboCat("Jinx");
+	OrganicCat cat = new OrganicCat("Cat"); 
 
 	@Test
-	public void shouldHaveNameHappyOilMess() {
-		String foundName = underTest.getName();
-		int foundHappy = underTest.getHappy();
-		int foundOil = underTest.getOil();
-		int foundMess = underTest.getMess();
-		assertThat(foundName, is("Paul"));
-		assertThat(foundHappy, is(10));
-		assertThat(foundOil, is(10));
-		assertThat(foundMess, is(10));
+	public void shouldHaveName() {
+		String name = underTest.getName();
+		assertThat(name, is("Jinx"));
 	}
-
+	
 	@Test
-	public void shouldDecreaseOilBy5WhenOiled() {
+	public void shouldHaveDefaultAttributesOf10() {
+		int health = underTest.getHealth();
+		int happiness = underTest.getHappiness();
+		int oilLevel = underTest.getOil();
+		assertThat(health, is(10));
+		assertThat(happiness, is(10));
+		assertThat(oilLevel, is(10));
+	}
+	@Test
+	public void shouldIncreaseHappinessBy5WhenPlayedWith() {
+		underTest.play();
+		int happy = underTest.getHappiness();
+		assertThat(happy,is(15));
+	}
+	@Test
+	public void shouldDecreaseOilLevelBy5WhenPlayedWith() {
+		underTest.play();
+		int oilLevel = underTest.getOil();
+		assertThat(oilLevel,is(5));
+	}
+	@Test
+	public void shouldIncreaseOilLevelTo10WhenOilChanged() {
+		underTest.play();
 		underTest.oil();
-		int foundOil = underTest.getOil();
-		assertThat(foundOil, is(5));
+		int oilLevel = underTest.getOil();
+		assertThat(oilLevel,is(10));
 	}
 	@Test
-	public void shouldBeAnInstanceOfOrganicPet() {
-		assertThat(underTest, instanceOf(RoboPets.class));
+	public void shouldDecreaseHealthBy10WhenLitterBoxWasteIs5rMore() {
+		cat.useLitter();
+		cat.useLitter();
+		cat.useLitter();
+		cat.useLitter();
+		cat.useLitter();
+		underTest.checkLitterBox();
+		int health = underTest.getHealth();
+		assertThat(health, is(9));
 	}
-
 }

@@ -1,44 +1,33 @@
 package Cats;
 
-import roboPets.RoboPets;
+import pets.RobotPet;
 
-public class RoboCat implements RoboPets {
+public class RoboCat extends RobotPet implements Cat {
 
-	private String name;
-	private int happy;
-	private int oil;
-	private int mess;
-
-	public RoboCat(String name, int happy, int oil, int mess) {
-		this.name = name;
-		this.happy = happy;
-		this.oil = oil;
-		this.mess = mess;
+	public RoboCat(String name) {
+		super(name);
 	}
 
 	@Override
-	public String getName() {
-		return name;
+	public void play() {
+		this.happiness +=5;
+		this.oilLevel -=5;
+		this.health +=5;
 	}
 
 	@Override
-	public int getHappy() {
-		return happy;
+	public void checkLitterBox() {
+		if(LitterBox.getWaste() >= 5) {
+			this.health -=1;
+		}
+		
 	}
 
 	@Override
-	public int getOil() {
-		return oil;
-	}
-
-	@Override
-	public int getMess() {
-		return mess;
-	}
-
-	@Override
-	public void oil() {
-		oil -=5;
+	protected void tick() {
+		health -= 5;
+		happiness -= 5;
+		oilLevel -= 5;	
 	}
 
 }
