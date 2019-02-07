@@ -17,7 +17,7 @@ public class RoboCat extends RobotPet implements Cat {
 
 	@Override
 	public void checkLitterBox() {
-		if(LitterBox.getWaste() >= 5) {
+		if(LitterBox.getMess() >= 5) {
 			this.health -=1;
 		}
 		
@@ -25,9 +25,9 @@ public class RoboCat extends RobotPet implements Cat {
 
 	@Override
 	protected void tick() {
-		health -= 5;
-		happiness -= 5;
-		oilLevel -= 5;	
+		health -= 1;
+		happiness -= 1;
+		oilLevel -= 1;	
 	}
 
 }

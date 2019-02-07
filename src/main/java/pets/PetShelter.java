@@ -75,7 +75,7 @@ public class PetShelter {
 		}
 	}
 
-	public void printPets() {
+	public void petsOutput() {
 		for (Pet allPets : getPets()) {
 			System.out.format("%10s %11s %10s %10s %10s %10s %10s %10s %10s",
 					allPets.getName(),allPets.getType(allPets),allPets.getHealth(),allPets.getHappiness(),

@@ -2,16 +2,16 @@ package Cats;
 
 public class LitterBox {
 
-	private static int wasteLevel = 0;
+	private static int messLevel = 0;
 
-	public static int getWaste() {
-		return wasteLevel;
+	public static int getMess() {
+		return messLevel;
 	}
 	public static void useBox() {
-		wasteLevel +=10;
+		messLevel +=10;
 	}
 	public static void clean() {
-		wasteLevel = 0;
+		messLevel = 0;
 	}
 
 }

@@ -20,7 +20,7 @@ public class OrganicCat extends OrganicPet implements Cat{
 
 	@Override
 	public void checkLitterBox() {
-		if(LitterBox.getWaste() >= 5) {
+		if(LitterBox.getMess() >= 5) {
 			this.health -=1;
 		}
 		
@@ -32,7 +32,7 @@ public class OrganicCat extends OrganicPet implements Cat{
 		thirst += 5;
 		hunger += 5;
 		mess += 5;
-		int healthChange = LitterBox.getWaste() / 10;
+		int healthChange = LitterBox.getMess() / 10;
 		health -= healthChange;
 		
 	}
