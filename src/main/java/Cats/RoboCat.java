@@ -10,7 +10,7 @@ public class RoboCat extends RobotPet implements Cat {
 
 	@Override
 	public void play() {
-		this.happiness +=5;
+		this.happy +=5;
 		this.oilLevel -=5;
 		this.health +=5;
 	}
@@ -26,7 +26,7 @@ public class RoboCat extends RobotPet implements Cat {
 	@Override
 	protected void tick() {
 		health -= 1;
-		happiness -= 1;
+		happy -= 1;
 		oilLevel -= 1;	
 	}
 

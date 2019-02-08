@@ -8,7 +8,7 @@ public class LitterBox {
 		return messLevel;
 	}
 	public static void useBox() {
-		messLevel +=10;
+		messLevel +=1;
 	}
 	public static void clean() {
 		messLevel = 0;

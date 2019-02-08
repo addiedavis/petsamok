@@ -11,12 +11,12 @@ public abstract class Pet {
 	protected static final int DEFAULT_HEALTH = 10;
 	protected String name;
 	protected int health;
-	protected int happiness;
+	protected int happy;
 
 	public Pet(String name) {
 		this.name = name;
 		this.health = DEFAULT_HEALTH;
-		this.happiness = DEFAULT_HAPPINESS;
+		this.happy = DEFAULT_HAPPINESS;
 	}
 
 	public String getName() {
@@ -27,8 +27,8 @@ public abstract class Pet {
 		return health;
 	}
 
-	public int getHappiness() {
-		return happiness;
+	public int getHappy() {
+		return happy;
 	}
 
 	public String getType(Pet aPet) {

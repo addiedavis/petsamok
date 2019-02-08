@@ -19,7 +19,7 @@ public class RoboCatTest {
 	@Test
 	public void shouldHaveDefaultAttributesOf10() {
 		int health = underTest.getHealth();
-		int happiness = underTest.getHappiness();
+		int happiness = underTest.getHappy();
 		int oilLevel = underTest.getOil();
 		assertThat(health, is(10));
 		assertThat(happiness, is(10));
@@ -28,7 +28,7 @@ public class RoboCatTest {
 	@Test
 	public void shouldIncreaseHappinessBy5WhenPlayedWith() {
 		underTest.play();
-		int happy = underTest.getHappiness();
+		int happy = underTest.getHappy();
 		assertThat(happy,is(15));
 	}
 	@Test

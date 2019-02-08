@@ -19,7 +19,7 @@ public class LitterBoxTest {
 		shelter.addPet(cat);
 		shelter.useLitterBox(underTest);
 		int mess = LitterBox.getMess();
-		assertThat(mess, is(10));
+		assertThat(mess, is(1));
 	}
 	@Test 
 	public void literBoxWasteShouldBe0AfterCleaing() {

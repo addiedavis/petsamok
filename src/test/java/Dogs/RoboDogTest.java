@@ -17,7 +17,7 @@ public class RoboDogTest {
 	@Test
 	public void shouldReturnDefaultAttributes() {
 		int health = underTest.getHealth();
-		int happiness = underTest.getHappiness();
+		int happiness = underTest.getHappy();
 		int oilLevel = underTest.getOil();
 		assertThat(health, is(10));
 		assertThat(happiness, is(10));
@@ -26,7 +26,7 @@ public class RoboDogTest {
 	@Test
 	public void shouldIncreaseHappinessBy5WhenWalked() {
 		underTest.walk();
-		int happy = underTest.getHappiness();
+		int happy = underTest.getHappy();
 		assertThat(happy,is(15));
 	}
 	@Test

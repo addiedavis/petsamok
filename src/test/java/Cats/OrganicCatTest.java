@@ -17,7 +17,7 @@ public class OrganicCatTest {
 	@Test
 	public void shouldHaveDefaultAttributesOf10() {
 		int health = underTest.getHealth();
-		int happiness = underTest.getHappiness();
+		int happiness = underTest.getHappy();
 		int thirst = underTest.getThirst();
 		int hunger = underTest.getHunger();
 		int mess = underTest.getMess();
@@ -30,7 +30,7 @@ public class OrganicCatTest {
 	@Test
 	public void shouldIncreaseHappinessBy5WhenPlayedWith() {
 		underTest.play();
-		int happy = underTest.getHappiness();
+		int happy = underTest.getHappy();
 		assertThat(happy,is(15));
 	}
 	@Test

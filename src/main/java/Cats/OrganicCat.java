@@ -10,7 +10,7 @@ public class OrganicCat extends OrganicPet implements Cat{
 
 	@Override
 	public void play() {
-		this.happiness +=5;
+		this.happy +=5;
 	}
 
 	public void useLitter() {
@@ -28,12 +28,13 @@ public class OrganicCat extends OrganicPet implements Cat{
 
 	@Override
 	protected void tick() {
-		happiness -= 5;
+		happy -= 5;
 		thirst += 5;
 		hunger += 5;
 		mess += 5;
-		int healthChange = LitterBox.getMess() / 10;
+		int healthChange = LitterBox.getMess() / 5;
 		health -= healthChange;
+		this.useLitter();
 		
 	}
 	

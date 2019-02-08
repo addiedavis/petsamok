@@ -17,7 +17,7 @@ public class OrganicDogTest {
 	@Test
 	public void shouldHaveDefaultAttributes() {
 		int health = underTest.getHealth();
-		int happiness = underTest.getHappiness();
+		int happiness = underTest.getHappy();
 		int thirst = underTest.getThirst();
 		int hunger = underTest.getHunger();
 		int mess = underTest.getMess();
@@ -30,7 +30,7 @@ public class OrganicDogTest {
 	@Test
 	public void shouldIncreaseHappinessBy5WhenWalked() {
 		underTest.walk();
-		int happy = underTest.getHappiness();
+		int happy = underTest.getHappy();
 		assertThat(happy,is(15));
 	}
 	@Test

@@ -12,17 +12,17 @@ public class OrganicDog extends OrganicPet implements Dog {
 
 	@Override
 	public void walk() {
-		this.happiness += 5;
+		this.happy += 5;
 		this.mess -= 5;
 	}
 
 	@Override
 	protected void tick() {
-		happiness -= 5;
-		thirst += 5;
-		hunger += 5;
-		mess += 5;
-		cageClean += mess / 10;
+		happy -= 1;
+		thirst += 1;
+		hunger += 1;
+		mess += 2;
+		cageClean += mess / 5;
 		health -= cageClean;
 	}
 

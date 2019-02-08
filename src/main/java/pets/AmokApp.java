@@ -25,34 +25,25 @@ public class AmokApp {
 		myShelter.addPet(roboCat);
 
 		while (true) {
-			System.out.println("Welcome to the pet shelter.\nThe pets have started to run amok!\nHere are the current pets: ");
+			System.out.println(
+					"Welcome to the pet shelter.\nThe pets have started to run amok!\nHere are the current pets: ");
 			System.out.format("%10s %11s %10s %10s %10s %10s %10s %10s %10s", "Name:", "Type", "Health", "Happiness",
-					"Oil", "Thirst", "Hunger", "Mess", "Cage Dirt");
+					"Oil", "Thirst", "Hunger", "Mess", "Cage's Mess");
 			System.out.println();
 			myShelter.petsOutput();
-			System.out.println("Litter box:" + LitterBox.getMess());
-			System.out.println("");
-			System.out.println("What would you like to do with our pets?");
+			System.out.println("Litter box:" + LitterBox.getMess()
+					+ "\n[The Organic Cats will use the Litter Box a lot.]\nWhat would you like to do?\n");
 			getOptions();
-			int choice = input.nextInt();
-			elvaulateChoice(choice);
+			int userInput = input.nextInt();
+			elvaulateChoice(userInput);
 			myShelter.tick();
 		}
 
 	}
 
 	private static void getOptions() {
-		System.out.println("1. Feed organic pets");
-		System.out.println("2. Oil the robot pets");
-		System.out.println("3. Give the pets water");
-		System.out.println("4. Play with the cats");
-		System.out.println("5. Walk the dogs");
-		System.out.println("6. Have the cats use the litter box");
-		System.out.println("7. Clean the litter Box");
-		System.out.println("8. Clean the dog cages");
-		System.out.println("9. Admit a pet to the shelter");
-		System.out.println("10. Quit");
-
+		System.out.println(
+				"1. Feed organic pets\n2. Give the pets water\n3. Oil the robot pets\n4. Walk the dogs\n5. Play with the cats\n6. Clean the litter Box\n7. Clean the dog cages\n8. Admit a pet to the shelter\n9. Quit");
 	}
 
 	private static void elvaulateChoice(int choice) {
@@ -61,30 +52,27 @@ public class AmokApp {
 			myShelter.feed();
 			break;
 		case 2:
-			myShelter.changeAllOil();
-			break;
-		case 3:
 			myShelter.giveWater();
 			break;
-		case 4:
-			myShelter.playWithCats();
+		case 3:
+			myShelter.changeAllOil();
 			break;
-		case 5:
+		case 4:
 			myShelter.walkDogs();
 			break;
-		case 6:
-			myShelter.catsUseBox();
+		case 5:
+			myShelter.playWithCats();
 			break;
-		case 7:
+		case 6:
 			LitterBox.clean();
 			break;
-		case 8:
+		case 7:
 			myShelter.cleanCages();
 			break;
-		case 9:
+		case 8:
 			addPet();
 			break;
-		case 10:
+		case 9:
 			System.exit(0);
 		}
 
@@ -95,15 +83,11 @@ public class AmokApp {
 		String name = input.nextLine();
 		name = input.nextLine();
 		String newPetName = name.substring(0, 1).toUpperCase() + name.substring(1);
-		
 		System.out.println("What kind of pet is " + newPetName + "?");
-		
-		System.out.println("Press 1 for Organic Dog");
-		System.out.println("Press 2 for Robo Dog");
-		System.out.println("Press 3 for Organic Cat");
-		System.out.println("Press 4 for Robo Dog");
-		int selection = input.nextInt();
-		switch (selection) {
+		System.out.println(
+				"Press 1 for Organic Dog\nPress 2 for Robo Dog\nPress 3 for Organic Cat\nPress 4 for Robo Cat");
+		int kindOfPet = input.nextInt();
+		switch (kindOfPet) {
 		case 1:
 			OrganicDog dog = new OrganicDog(newPetName);
 			myShelter.addPet(dog);
